@@ -8,7 +8,7 @@ class Cell:
     available_state = None  # type: set[int]
     __state = None  # type: int
 
-    def __init__(self, state=None):
+    def __init__(self, state=0):
         self.available_state = set(range(1, 10))
         self.__state = state
         if state:
@@ -20,7 +20,7 @@ class Cell:
 
     @state.setter
     def state(self, state):
-        self.available_state = set()
+        self.available_state = {state}
         self.__state = state
         for cell in self.v_line:
             if not cell.state:
